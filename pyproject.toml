@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "news-digest-engine"
+version = "1.0.0"
+description = "AI-powered daily news aggregation, summarization, and briefing system with LLM auditor governance."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Juan Ruiz Alonso"},
+]
+
+dependencies = [
+    "openai>=1.0.0",
+    "feedparser>=6.0.0",
+    "beautifulsoup4>=4.12.0",
+    "rich>=13.0.0",
+    "streamlit>=1.30.0",
+    "python-dotenv>=1.0.0",
+    "llmauditor>=0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+news-digest = "cli:main"
+
+[project.urls]
+Homepage = "https://github.com/JRA-CodingLab/news-digest-engine"
+Repository = "https://github.com/JRA-CodingLab/news-digest-engine"
+Issues = "https://github.com/JRA-CodingLab/news-digest-engine/issues"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
